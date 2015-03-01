@@ -5,6 +5,7 @@
 Basicaly they are PHP/HTML files.
 -->
 <h1>Blog posts</h1>
+
 <table>
 	<tr>
 		<th>Id</th>
@@ -28,3 +29,10 @@ Basicaly they are PHP/HTML files.
 	<?php endforeach; ?>
 	<?php unset($post); ?>
 </table>
+
+<!--
+Link for adding more posts
+-->
+<?php
+echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add'));
+?>

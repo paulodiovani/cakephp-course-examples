@@ -46,4 +46,35 @@ class PostsController extends AppController {
 		}
 		$this->set('post', $post);
 	}
+
+	public function add() {
+		/*
+		Check request method (GET, PUT, POST, DELETE)
+		 */
+		if ($this->request->is('post')) {
+			/*
+			The create method ensures that a new record will
+			be created on databse
+			 */
+			$this->Post->create();
+			/*
+			`$this->request->data` has all the data sent by the client.
+
+			You can check the data by using the `pr()` or `debug()`
+			functions.
+			 */
+			if ($this->Post->save($this->request->data)) {
+				/*
+				The SessionComponent can be used to set messages that will be
+				available on the views
+				 */
+				$this->Session->setFlash(__('Your post has been saved.'));
+				/*
+				Redirect to somewhere
+				 */
+				return $this->redirect(array('action' => 'index'));
+			}
+			$this->Session->setFlash(__('Unable to add your post.'));
+		}
+	}
 }
