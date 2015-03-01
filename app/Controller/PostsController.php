@@ -9,6 +9,4 @@ class PostsController extends AppController {
 	they can format values or print HTML fragments, for example.
 	 */
 	public $helpers = array('Html', 'Form');
-
-	public $scaffold;
 }
