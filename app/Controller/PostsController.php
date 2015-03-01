@@ -31,4 +31,19 @@ class PostsController extends AppController {
 		to the action name. In this case, `/app/views/Posts/index.ctp`
 		 */
 	}
+
+	public function view($id = null) {
+		if (!$id) {
+			throw new NotFoundException(__('Invalid post'));
+		}
+
+		/*
+		Find the Post by the id
+		 */
+		$post = $this->Post->findById($id);
+		if (!$post) {
+			throw new NotFoundException(__('Invalid post'));
+		}
+		$this->set('post', $post);
+	}
 }
