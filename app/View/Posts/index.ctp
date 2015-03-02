@@ -33,6 +33,13 @@ Basicaly they are PHP/HTML files.
 				array('action' => 'edit', $post['Post']['id'])
 			);
 			?>
+			<?php
+			echo $this->Form->postLink(
+					'Delete',
+					array('action' => 'delete', $post['Post']['id']),
+					array('confirm' => 'Are you sure?')
+			);
+			?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
