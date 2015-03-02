@@ -9,5 +9,5 @@ Example sources for CakePHP Course
 ```
 git clone https://github.com/paulodiovani/cakephp2-course-examples.git cakephp2
 cd cakephp2
-git checkout part-0
+git reset --hard part-0
 ```
