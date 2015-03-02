@@ -11,6 +11,7 @@ Basicaly they are PHP/HTML files.
 		<th>Id</th>
 		<th>Title</th>
 		<th>Created</th>
+		<th>Actions</th>
 	</tr>
 
 	<!-- Here is where we loop through our $posts array, printing out post info -->
@@ -25,6 +26,14 @@ Basicaly they are PHP/HTML files.
 			?>
 		</td>
 		<td><?php echo $post['Post']['created']; ?></td>
+		<td>
+			<?php
+			echo $this->Html->link(
+				'Edit',
+				array('action' => 'edit', $post['Post']['id'])
+			);
+			?>
+		</td>
 	</tr>
 	<?php endforeach; ?>
 	<?php unset($post); ?>
