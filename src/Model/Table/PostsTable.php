@@ -25,6 +25,14 @@ class PostsTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->hasMany('Comments', [
+            'foreignKey' => 'post_id'
+        ]);
+        $this->belongsToMany('Categories', [
+            'foreignKey' => 'post_id',
+            'targetForeignKey' => 'category_id',
+            'joinTable' => 'posts_categories'
+        ]);
     }
 
     /**

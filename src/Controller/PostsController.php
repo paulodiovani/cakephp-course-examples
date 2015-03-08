@@ -32,7 +32,7 @@ class PostsController extends AppController
     public function view($id = null)
     {
         $post = $this->Posts->get($id, [
-            'contain' => []
+            'contain' => ['Categories', 'Comments']
         ]);
         $this->set('post', $post);
         $this->set('_serialize', ['post']);
@@ -55,7 +55,8 @@ class PostsController extends AppController
                 $this->Flash->error('The post could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('post'));
+        $categories = $this->Posts->Categories->find('list', ['limit' => 200]);
+        $this->set(compact('post', 'categories'));
         $this->set('_serialize', ['post']);
     }
 
@@ -69,7 +70,7 @@ class PostsController extends AppController
     public function edit($id = null)
     {
         $post = $this->Posts->get($id, [
-            'contain' => []
+            'contain' => ['Categories']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $post = $this->Posts->patchEntity($post, $this->request->data);
@@ -80,7 +81,8 @@ class PostsController extends AppController
                 $this->Flash->error('The post could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('post'));
+        $categories = $this->Posts->Categories->find('list', ['limit' => 200]);
+        $this->set(compact('post', 'categories'));
         $this->set('_serialize', ['post']);
     }
 

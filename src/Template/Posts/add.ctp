@@ -2,6 +2,10 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('List Posts'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="posts form large-10 medium-9 columns">
@@ -11,6 +15,7 @@
         <?php
             echo $this->Form->input('title');
             echo $this->Form->input('body');
+            echo $this->Form->input('categories._ids', ['options' => $categories]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

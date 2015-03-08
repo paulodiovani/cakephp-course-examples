@@ -41,8 +41,8 @@ class PostsFixture extends TestFixture
             'id' => 1,
             'title' => 'Lorem ipsum dolor sit amet',
             'body' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-            'created' => '2015-03-05 03:42:11',
-            'modified' => '2015-03-05 03:42:11'
+            'created' => '2015-03-08 20:37:16',
+            'modified' => '2015-03-08 20:37:16'
         ],
     ];
 }

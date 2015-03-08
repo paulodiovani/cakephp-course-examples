@@ -16,7 +16,10 @@ class PostsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'Posts' => 'app.posts'
+        'Posts' => 'app.posts',
+        'Comments' => 'app.comments',
+        'Categories' => 'app.categories',
+        'PostsCategories' => 'app.posts_categories'
     ];
 
     /**
