@@ -17,6 +17,5 @@ class Category extends Entity
     protected $_accessible = [
         'name' => true,
         'slug' => true,
-        'posts' => true,
     ];
 }
