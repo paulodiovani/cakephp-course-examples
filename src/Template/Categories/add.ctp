@@ -13,7 +13,6 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('slug');
-            echo $this->Form->input('posts._ids', ['options' => $posts]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
