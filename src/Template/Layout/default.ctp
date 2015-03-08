@@ -42,6 +42,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
             <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
         </div>
+        <div class="header-menu">
+            <ul class="menu">
+                <li><?= $this->Html->link(__('Categories'), ['controller' => 'categories', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Posts'), ['controller' => 'posts', 'action' => 'index']) ?></li>
+            </ul>
+        </div>
     </header>
     <div id="container">
 
