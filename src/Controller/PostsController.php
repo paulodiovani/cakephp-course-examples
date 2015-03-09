@@ -34,7 +34,9 @@ class PostsController extends AppController
         $post = $this->Posts->get($id, [
             'contain' => ['Categories', 'Comments']
         ]);
-        $this->set('post', $post);
+        $newComment = $this->Posts->Comments->newEntity();
+
+        $this->set(compact('post', 'newComment'));
         $this->set('_serialize', ['post']);
     }
 

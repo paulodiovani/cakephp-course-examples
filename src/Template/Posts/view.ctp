@@ -61,8 +61,6 @@
             <td><?= h($comments->modified) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'Comments', 'action' => 'view', $comments->id]) ?>
-
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comments->id]) ?>
 
                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Comments', 'action' => 'delete', $comments->id], ['confirm' => __('Are you sure you want to delete # {0}?', $comments->id)]) ?>
@@ -73,6 +71,21 @@
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
+    </div>
+
+    <div class="comments form large-12 columns">
+        <?= $this->Form->create($newComment, ['url' => ['controller' => 'comments', 'action' => 'add']]); ?>
+        <fieldset>
+            <legend><?= __('Add Comment') ?></legend>
+            <?php
+                echo $this->Form->input('post_id', ['type' => 'hidden', 'value' => $post->id]);
+                echo $this->Form->input('name');
+                echo $this->Form->input('email');
+                echo $this->Form->input('comment', ['type' => 'textarea']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->end() ?>
     </div>
 </div>
 <div class="related row">
