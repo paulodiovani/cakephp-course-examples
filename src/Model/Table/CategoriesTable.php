@@ -46,7 +46,13 @@ class CategoriesTable extends Table
             ->requirePresence('name', 'create')
             ->notEmpty('name')
             ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->notEmpty('slug')
+            ->add('slug', 'custom', [
+                'rule' => function($value, $context) {
+                    return (bool) preg_match('/^[a-z0-9\-]+$/', $value);
+                },
+                'message' => 'Slug cannot contain spaces or special characters'
+            ]);
 
         return $validator;
     }
