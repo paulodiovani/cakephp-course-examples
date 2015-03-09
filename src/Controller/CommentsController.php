@@ -10,37 +10,6 @@ use App\Controller\AppController;
  */
 class CommentsController extends AppController
 {
-
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Posts']
-        ];
-        $this->set('comments', $this->paginate($this->Comments));
-        $this->set('_serialize', ['comments']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Comment id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $comment = $this->Comments->get($id, [
-            'contain' => ['Posts']
-        ]);
-        $this->set('comment', $comment);
-        $this->set('_serialize', ['comment']);
-    }
-
     /**
      * Add method
      *
@@ -53,14 +22,14 @@ class CommentsController extends AppController
             $comment = $this->Comments->patchEntity($comment, $this->request->data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success('The comment has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'posts', 'action' => 'view', $this->request->data['post_id']]);
             } else {
                 $this->Flash->error('The comment could not be saved. Please, try again.');
+                return $this->redirect(['controller' => 'posts', 'action' => 'view', $this->request->data['post_id']]);
             }
         }
-        $posts = $this->Comments->Posts->find('list', ['limit' => 200]);
-        $this->set(compact('comment', 'posts'));
-        $this->set('_serialize', ['comment']);
+
+        throw new \Cake\Network\Exception\NotFoundException('Missing Method in CommentsController');
     }
 
     /**
@@ -79,12 +48,11 @@ class CommentsController extends AppController
             $comment = $this->Comments->patchEntity($comment, $this->request->data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success('The comment has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'posts', 'action' => 'view', $this->request->data['post_id']]);
             } else {
                 $this->Flash->error('The comment could not be saved. Please, try again.');
             }
         }
-        $posts = $this->Comments->Posts->find('list', ['limit' => 200]);
         $this->set(compact('comment', 'posts'));
         $this->set('_serialize', ['comment']);
     }

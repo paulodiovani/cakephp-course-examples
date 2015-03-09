@@ -17,10 +17,10 @@
     <fieldset>
         <legend><?= __('Edit Comment') ?></legend>
         <?php
-            echo $this->Form->input('post_id', ['options' => $posts]);
+            echo $this->Form->input('post_id', ['type' => 'hidden']);
             echo $this->Form->input('name');
             echo $this->Form->input('email');
-            echo $this->Form->input('comment');
+            echo $this->Form->input('comment', ['type' => 'textarea']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
