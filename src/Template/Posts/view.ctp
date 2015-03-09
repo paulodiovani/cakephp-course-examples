@@ -74,7 +74,7 @@
     </div>
 
     <div class="comments form large-12 columns">
-        <?= $this->Form->create($newComment, ['url' => ['controller' => 'comments', 'action' => 'add']]); ?>
+        <?= $this->Form->create($newComment, ['url' => ['controller' => 'Comments', 'action' => 'add']]); ?>
         <fieldset>
             <legend><?= __('Add Comment') ?></legend>
             <?php

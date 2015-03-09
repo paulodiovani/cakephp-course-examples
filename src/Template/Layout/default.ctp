@@ -44,8 +44,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div class="header-menu">
             <ul class="menu">
-                <li><?= $this->Html->link(__('Categories'), ['controller' => 'categories', 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link(__('Posts'), ['controller' => 'posts', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Posts'), ['controller' => 'Posts', 'action' => 'index']) ?></li>
             </ul>
         </div>
     </header>
