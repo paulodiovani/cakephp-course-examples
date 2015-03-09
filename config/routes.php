@@ -48,7 +48,13 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Posts', 'action' => 'index']);
-    $routes->connect('/artigos/:action/*', ['controller' => 'Posts']);
+
+    $routes->scope('/artigos', ['controller' => 'Posts'], function($routes){
+        $routes->connect('/*', ['action' => 'view']);
+        $routes->connect('/novo', ['action' => 'add']);
+        $routes->connect('/editar/*', ['action' => 'edit']);
+        $routes->connect('/deletar/*', ['action' => 'delete']);
+    });
 
     $routes->connect('/categorias', ['controller' => 'Categories', 'action' => 'index']);
     $routes->connect('/categorias/:action/*', ['controller' => 'Categories']);
@@ -78,6 +84,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->fallbacks('InflectedRoute');
 });
+
 
 /**
  * Load all plugin routes.  See the Plugin documentation on
